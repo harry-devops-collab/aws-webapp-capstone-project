@@ -20,7 +20,7 @@ The goal of this project is to build a scalable and fault-tolerant architecture.
 ---
 
 ## Architecture
-User → Load Balancer → Target Group → EC2 Instances (Auto Scaling)
+User → Application Load Balancer → Target Group → EC2 Instances → Auto Scaling Group
 
 ---
 
@@ -65,85 +65,55 @@ Configured ASG for high availability.
 
 ### Step 1: Create VPC
 Created custom VPC.
+![VPC](screenshots/vpc.png)
 
-![VPC](screenshots/VPC.png)
+### Step 2: Create Public Subnets
+Created two public subnets.
+![Subnets](screenshots/subnets.png)
 
----
-
-### Step 2: Create Subnets
-Created public subnets.
-
-![Subnets](screenshots/Subnets.png)
-
----
-
-### Step 3: Create Route Tables
-Configured route table.
-
-![Route Table](screenshots/Route Tables.png)
-
----
+### Step 3: Configure Route Table
+Attached route table with internet access.
+![Route Table](screenshots/route-tables.png)
 
 ### Step 4: Attach Internet Gateway
-Connected internet gateway.
+Connected VPC to Internet Gateway.
+![Internet Gateway](screenshots/internet-gateway.png)
 
-![Internet Gateway](screenshots/Internet Gateway.png)
+### Step 5: Launch EC2 Instance
+Created EC2 instance and installed Apache.
+![EC2](screenshots/ec2-instance.png)
 
----
+### Step 6: Configure Apache Web Server
+Hosted website on Apache.
+![Apache](screenshots/apache-server.png)
 
-### Step 5: Launch EC2
-Created Ubuntu EC2 instance.
-
-![EC2](screenshots/EC2 Instance.png)
-
----
-
-### Step 6: Install Apache
-Installed Apache web server.
-
-![Apache](screenshots/Apache Server.png)
-
----
-
-### Step 7: Deploy Website
-Hosted sample web page.
-
-![Website](screenshots/Deploy Server.png)
-
----
+### Step 7: Verify Website
+Checked website in browser.
+![Website](screenshots/deploy-server.png)
 
 ### Step 8: Create AMI
-Created machine image.
+Created custom AMI from EC2.
+![AMI](screenshots/ami.png)
 
-![AMI](screenshots/AMI.png)
+### Step 9: Create Auto Scaling Group
+Configured Launch Template + ASG.
+![Auto Scaling Group](screenshots/auto-scaling-group.png)
 
----
-
-### Step 9: Create Launch Template
-Launch template created.
-
-![Launch Template](screenshots/Instance.png)
-
----
-
-### Step 10: Create Target Group
-Target group configured.
-
-![Target Group](screenshots/Loadbalancer Error.png)
+### Step 10: Verify Auto Scaling
+New instances launched automatically.
+![Instances After Auto Scaling](screenshots/Instances-After-Auto-Scaling.png)
 
 ---
 
 ### Step 11: Create Load Balancer
 Configured ALB.
-
-![Load Balancer](screenshots/Apache 2 Server.png)
+![Load Balancer](screenshots/apache-2-server.png)
 
 ---
 
 ### Step 12: Configure Auto Scaling
 Configured Auto Scaling Group.
-
-![ASG](screenshots/Auto Scaling Group.png)
+![ASG](screenshots/auto-scaling-group.png)
 
 ---
 
